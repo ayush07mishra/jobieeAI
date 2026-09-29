@@ -1,10 +1,271 @@
 {
     "companies": [
-        {
-            "name": "Airbnb",
-            "platform": "greenhouse",
-            "board_token": "airbnb"
-        }
+{
+    "name": "Stripe",
+    "platform": "greenhouse",
+    "board_token": "stripe"
+},
+{
+    "name": "Anthropic",
+    "platform": "greenhouse",
+    "board_token": "anthropic"
+},
+{
+    "name": "Airbnb",
+    "platform": "greenhouse",
+    "board_token": "airbnb"
+},
+{
+    "name": "Coinbase",
+    "platform": "greenhouse",
+    "board_token": "coinbase"
+},
+{
+    "name": "Discord",
+    "platform": "greenhouse",
+    "board_token": "discord"
+},
+{
+    "name": "Figma",
+    "platform": "greenhouse",
+    "board_token": "figma"
+},
+{
+    "name": "Cloudflare",
+    "platform": "greenhouse",
+    "board_token": "cloudflare"
+},
+{
+    "name": "Databricks",
+    "platform": "greenhouse",
+    "board_token": "databricks"
+},
+{
+    "name": "Vercel",
+    "platform": "greenhouse",
+    "board_token": "vercel"
+},
+{
+    "name": "Dropbox",
+    "platform": "greenhouse",
+    "board_token": "dropbox"
+},
+{
+    "name": "Notion",
+    "platform": "greenhouse",
+    "board_token": "notion"
+},
+{
+    "name": "Slack",
+    "platform": "greenhouse",
+    "board_token": "slack"
+},
+{
+    "name": "Zoom",
+    "platform": "greenhouse",
+    "board_token": "zoom"
+},
+{
+    "name": "Robinhood",
+    "platform": "greenhouse",
+    "board_token": "robinhood"
+},
+{
+    "name": "Block",
+    "platform": "greenhouse",
+    "board_token": "block"
+},
+{
+    "name": "Lyft",
+    "platform": "greenhouse",
+    "board_token": "lyft"
+},
+{
+    "name": "Pinterest",
+    "platform": "greenhouse",
+    "board_token": "pinterest"
+},
+{
+    "name": "Reddit",
+    "platform": "greenhouse",
+    "board_token": "reddit"
+},
+{
+    "name": "Twilio",
+    "platform": "greenhouse",
+    "board_token": "twilio"
+},
+{
+    "name": "Datadog",
+    "platform": "greenhouse",
+    "board_token": "datadog"
+},
+{
+    "name": "MongoDB",
+    "platform": "greenhouse",
+    "board_token": "mongodb"
+},
+{
+    "name": "Instacart",
+    "platform": "greenhouse",
+    "board_token": "instacart"
+},
+{
+    "name": "Roblox",
+    "platform": "greenhouse",
+    "board_token": "roblox"
+},
+{
+    "name": "GitLab",
+    "platform": "greenhouse",
+    "board_token": "gitlab"
+},
+{
+    "name": "Grafana Labs",
+    "platform": "greenhouse",
+    "board_token": "grafanalabs"
+},
+{
+    "name": "Asana",
+    "platform": "greenhouse",
+    "board_token": "asana"
+},
+{
+    "name": "Okta",
+    "platform": "greenhouse",
+    "board_token": "okta"
+},
+{
+    "name": "Alpaca",
+    "platform": "greenhouse",
+    "board_token": "alpaca"
+},
+{
+    "name": "Affirm",
+    "platform": "greenhouse",
+    "board_token": "affirm"
+},
+{
+    "name": "Brex",
+    "platform": "greenhouse",
+    "board_token": "brex"
+},
+{
+    "name": "Scale AI",
+    "platform": "greenhouse",
+    "board_token": "scaleai"
+},
+{
+    "name": "Anduril",
+    "platform": "greenhouse",
+    "board_token": "anduril"
+},
+{
+    "name": "HubSpot",
+    "platform": "greenhouse",
+    "board_token": "hubspot"
+},
+{
+    "name": "DoorDash",
+    "platform": "greenhouse",
+    "board_token": "doordashusa"
+},
+{
+    "name": "Elastic",
+    "platform": "greenhouse",
+    "board_token": "elastic"
+},
+{
+    "name": "Glean",
+    "platform": "greenhouse",
+    "board_token": "glean"
+},
+{
+    "name": "Chime",
+    "platform": "greenhouse",
+    "board_token": "chime"
+},
+{
+    "name": "Flexport",
+    "platform": "greenhouse",
+    "board_token": "flexport"
+},
+{
+    "name": "Samsara",
+    "platform": "greenhouse",
+    "board_token": "samsara"
+},
+{
+    "name": "OpenAI",
+    "platform": "ashby",
+    "board_token": "openai"
+},
+{
+    "name": "Ramp",
+    "platform": "ashby",
+    "board_token": "ramp"
+},
+{
+    "name": "Linear",
+    "platform": "ashby",
+    "board_token": "linear"
+},
+{
+    "name": "Notion",
+    "platform": "ashby",
+    "board_token": "notion"
+},
+{
+    "name": "Cursor",
+    "platform": "ashby",
+    "board_token": "cursor"
+},
+{
+    "name": "Perplexity",
+    "platform": "ashby",
+    "board_token": "perplexity"
+},
+{
+    "name": "Supabase",
+    "platform": "ashby",
+    "board_token": "supabase"
+},
+{
+    "name": "Plaid",
+    "platform": "ashby",
+    "board_token": "plaid"
+},
+{
+    "name": "Snowflake",
+    "platform": "ashby",
+    "board_token": "snowflake"
+},
+{
+    "name": "Confluent",
+    "platform": "ashby",
+    "board_token": "confluent"
+},
+{
+    "name": "Sentry",
+    "platform": "ashby",
+    "board_token": "sentry"
+},
+{
+    "name": "Palantir",
+    "platform": "lever",
+    "board_token": "palantir"
+},
+{
+    "name": "Wealthfront",
+    "platform": "lever",
+    "board_token": "wealthfront"
+},
+{
+    "name": "Spotify",
+    "platform": "lever",
+    "board_token": "spotify"
+}
+
     ],
     "roles": [
         "AI Engineer",
