@@ -1,0 +1,31 @@
+{
+    "companies": [
+        {
+            "name": "Airbnb",
+            "platform": "greenhouse",
+            "board_token": "airbnb"
+        }
+    ],
+    "roles": [
+        "AI Engineer",
+        "Machine Learning Engineer",
+        "ML Engineer",
+        "Data Scientist",
+        "AI/ML Engineer"
+    ],
+    "locations": [
+        "India",
+        "Remote"
+    ],
+    "experience_min": 0,
+    "experience_max": 1,
+    "skills": [
+        "Python",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "TensorFlow",
+        "PyTorch",
+        "Generative AI",
+        "LLM"
+    ]
+}

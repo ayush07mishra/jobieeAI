@@ -1,0 +1,4 @@
+2026-09-29 17:51:57,016 - INFO - Job agent started
+2026-09-29 17:51:57,018 - INFO - Checking company: Airbnb
+2026-09-29 17:51:57,446 - INFO - Airbnb: 156 jobs fetched
+2026-09-29 17:51:57,470 - INFO - Agent finished | Total=156, New=0, AI=0, Matches=0
