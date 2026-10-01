@@ -1,5 +1,4 @@
 import json
-
 from app.collectors.collector_factory import create_collector
 from app.database.database import JobDatabase
 from app.filters.job_filter import JobFilter
