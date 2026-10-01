@@ -1,83 +1,111 @@
-🤖 JobieeAI - AI Job Alert Agent
+# 🤖 JobieeAI
 
-An automated personal AI job-search agent that monitors job openings
-from selected companies, filters them according to your preferences,
-uses an AI model to evaluate relevance, and sends matching jobs directly
-to Telegram.
+> An AI-powered personal job alert agent that automatically finds relevant job openings, evaluates them against your preferences, and sends matching opportunities directly to Telegram.
 
-The project is designed as a simple personal automation system. It does
-not require a web UI, dashboard, or multi-user backend.
+## 📌 Overview
 
-✨ Features
+**JobieeAI** is a personal AI job-search automation system built with Python.
 
-🔎 Automatically collects jobs from supported company career
-platforms
+Instead of manually checking multiple company career pages every day, JobieeAI automatically:
 
-🏢 Monitor specific companies
+- Collects job openings from selected companies
+- Filters jobs based on preferred roles, locations, experience, and skills
+- Uses AI to evaluate job relevance
+- Generates an AI confidence score and explanation
+- Sends matching jobs directly to Telegram
+- Runs automatically using GitHub Actions
 
-💼 Filter jobs by role/profile
+The project is designed as a **personal automation agent** without a web dashboard, frontend, authentication system, or multi-user architecture.
 
-📍 Filter jobs by location
+---
 
-🎓 Filter for fresher and 0--1 year experience opportunities
+## ✨ Features
 
-🧠 Use an AI model to perform deeper job matching
+- 🔎 Automated job collection
+- 🏢 Monitor selected companies
+- 💼 Role-based filtering
+- 📍 Location-based filtering
+- 🎓 Fresher / 0–1 year experience filtering
+- 🛠️ Skill-based filtering
+- 🧠 AI-powered job matching
+- 📊 AI confidence score
+- 💬 AI-generated matching explanation
+- 📱 Telegram notifications
+- 🗄️ SQLite job storage
+- 📝 Application logging
+- ⏰ Scheduled execution
+- ☁️ GitHub Actions automation
+- 🔐 Secure Telegram credentials using GitHub Secrets
+- 🆓 Local AI inference using Ollama
 
-📊 Generate an AI confidence score and matching reason
+---
 
-📱 Send matching jobs directly to Telegram
+# 🏗️ Architecture
 
-🗄️ Store discovered jobs using SQLite
+```text
+                         ┌──────────────────────┐
+                         │    GitHub Actions    │
+                         │   Scheduled Runner   │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │       main.py        │
+                         │   Agent Controller   │
+                         └──────────┬───────────┘
+                                    │
+                 ┌──────────────────┼──────────────────┐
+                 │                  │                  │
+                 ▼                  ▼                  ▼
+        ┌────────────────┐  ┌────────────────┐  ┌───────────────┐
+        │   Collectors   │  │  Job Filters   │  │    SQLite     │
+        │                │  │                │  │   Database    │
+        │   Greenhouse   │  │ Company        │  │   jobs.db     │
+        │      API       │  │ Role           │  │               │
+        └───────┬────────┘  │ Location       │  └───────────────┘
+                │           │ Experience     │
+                │           └───────┬────────┘
+                │                   │
+                └───────────────────▼
+                            ┌────────────────┐
+                            │   AI Matcher   │
+                            │    Ollama      │
+                            │   Llama 3.2    │
+                            └───────┬────────┘
+                                    │
+                                    ▼
+                            ┌────────────────┐
+                            │    Telegram    │
+                            │  Notification  │
+                            └────────────────┘
+```
 
-⏰ Run automatically every 2 hours with GitHub Actions
+---
 
-📝 Maintain application logs for debugging
+# 🛠️ Tech Stack
 
-🔐 Keep Telegram credentials in GitHub Secrets
+| Technology | Purpose |
+|---|---|
+| Python | Core application |
+| Requests | Job API requests |
+| SQLite | Job storage |
+| Ollama | Local AI inference |
+| Llama 3.2 | AI job matching |
+| Telegram Bot API | Job notifications |
+| python-dotenv | Environment variables |
+| Schedule | Local scheduled execution |
+| GitHub Actions | Automated execution |
+| JSON | User preferences |
 
-🏗️ Architecture
+---
 
-                    ┌─────────────────────┐
-                    │   GitHub Actions    │
-                    │  Scheduled Runner   │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │      main.py        │
-                    │   Agent Controller  │
-                    └──────────┬──────────┘
-                               │
-             ┌─────────────────┼─────────────────┐
-             │                 │                 │
-             ▼                 ▼                 ▼
-      ┌─────────────┐   ┌─────────────┐   ┌─────────────┐
-      │ Collectors  │   │ Job Filter  │   │  SQLite DB  │
-      │             │   │             │   │             │
-      │ Greenhouse  │   │ Company     │   │ jobs.db     │
-      │    API      │   │ Role        │   │             │
-      └──────┬──────┘   │ Location    │   └─────────────┘
-             │          │ Experience  │
-             │          └──────┬──────┘
-             │                 │
-             │                 ▼
-             │        ┌─────────────────┐
-             └───────►│   AI Matcher    │
-                      │    Ollama       │
-                      │    Llama 3.2    │
-                      └────────┬────────┘
-                               │
-                               ▼
-                      ┌─────────────────┐
-                      │    Telegram     │
-                      │   Notification  │
-                      └─────────────────┘
+# 📁 Project Structure
 
-📁 Project Structure
-
+```text
 jobieeAI/
 │
 ├── app/
+│   │
 │   ├── agent/
 │   │   └── job_matching_agent.py
 │   │
@@ -115,104 +143,163 @@ jobieeAI/
 ├── main.py
 ├── requirements.txt
 └── README.md
+```
 
-🛠️ Tech Stack
+---
 
-Technology         Purpose
+# 🚀 Getting Started
 
-Python             Core application
-Requests           Job API requests
-SQLite             Job storage
-Ollama             Local AI inference
-Llama 3.2          Job matching model
-Telegram Bot API   Notifications
-python-dotenv      Environment variables
-Schedule           Local periodic execution
-GitHub Actions     Automated cloud execution
-JSON               User preferences and configuration
+## 1. Clone the Repository
 
-🚀 Getting Started
-
-1. Clone the repository
-
+```bash
 git clone https://github.com/ayush07mishra/jobieeAI.git
 cd jobieeAI
+```
 
-2. Create a virtual environment
+---
 
-macOS / Linux
+## 2. Create a Virtual Environment
 
+### macOS / Linux
+
+```bash
 python3 -m venv venv
 source venv/bin/activate
+```
 
-Windows
+### Windows
 
+```bash
 python -m venv venv
 venv\Scripts\activate
+```
 
-3. Install dependencies
+---
 
+## 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-🤖 Configure Ollama
+---
 
-This project uses Ollama for local AI job matching.
+# 🤖 Ollama Setup
 
-Install Ollama from the official Ollama website.
+JobieeAI uses **Ollama** to run the AI model locally.
 
-Then download the model:
+Install Ollama and download the model:
 
+```bash
 ollama pull llama3.2
+```
 
 Verify the model:
 
+```bash
 ollama list
+```
 
 You should see:
 
+```text
 llama3.2
+```
 
-Start Ollama if it is not already running:
+If Ollama is not already running:
 
+```bash
 ollama serve
+```
 
-📱 Configure Telegram
+---
 
-1. Create a Telegram bot
+# 📱 Telegram Setup
+
+JobieeAI sends matching jobs directly to Telegram.
+
+## 1. Create a Telegram Bot
 
 Open Telegram and search for:
 
+```text
 @BotFather
+```
 
-Create a new bot using:
+Run:
 
+```text
 /newbot
+```
+
+Follow the instructions to create your bot.
 
 BotFather will provide a bot token.
 
 Keep this token private.
 
-2. Get your Telegram Chat ID
+---
 
-Start a conversation with your bot and send it a message.
+## 2. Get Your Chat ID
 
-Then use Telegram's Bot API getUpdates endpoint to find your chat ID.
+Start a conversation with your Telegram bot and send it a message.
 
-Your .env file should contain:
+Use Telegram's Bot API to retrieve your chat ID.
 
-TELEGRAM_BOT_TOKEN=your_bot_token
-TELEGRAM_CHAT_ID=your_chat_id
+You will need:
 
-Never commit .env to GitHub.
+```text
+TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID
+```
 
-⚙️ Configure Job Preferences
+---
+
+# 🔐 Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+TELEGRAM_CHAT_ID=your_telegram_chat_id
+```
+
+Your project should look like:
+
+```text
+jobieeAI/
+├── .env
+├── main.py
+├── requirements.txt
+└── ...
+```
+
+### ⚠️ Important
+
+Never commit your `.env` file to GitHub.
+
+Your `.gitignore` should contain:
+
+```gitignore
+venv/
+.env
+__pycache__/
+*.pyc
+```
+
+---
+
+# ⚙️ Configure Job Preferences
 
 Edit:
 
+```text
 app/filters/user_preferences.json
+```
 
 Example:
 
+```json
 {
     "companies": [
         {
@@ -241,48 +328,87 @@ Example:
         "PyTorch"
     ]
 }
+```
 
-Preferences
+---
 
-Field              Description
+# 🎯 User Preferences
 
-companies        Companies to monitor
-roles            Target job profiles
-locations        Accepted job locations
-experience_min   Minimum experience
-experience_max   Maximum experience
-skills           Relevant technical skills
+The following configuration controls which jobs are considered relevant.
 
-🏢 Adding Companies
+| Field | Description |
+|---|---|
+| `companies` | Companies to monitor |
+| `roles` | Target job profiles |
+| `locations` | Preferred locations |
+| `experience_min` | Minimum experience |
+| `experience_max` | Maximum experience |
+| `skills` | Relevant technical skills |
 
-Companies are configured in:
+Example:
 
+```json
+"experience_min": 0,
+"experience_max": 1
+```
+
+This configures the agent to target opportunities suitable for candidates with approximately 0–1 year of experience.
+
+---
+
+# 🏢 Adding Companies
+
+Companies are configured inside:
+
+```text
 app/filters/user_preferences.json
+```
 
-Each supported company contains:
+For a Greenhouse company:
 
+```json
 {
     "name": "Company Name",
     "platform": "greenhouse",
     "board_token": "company-board-token"
 }
+```
 
-Currently, the collector architecture supports the Greenhouse
-platform.
+Example:
 
-Other platforms can be added later by implementing additional collectors
-and registering them in:
+```json
+{
+    "name": "Airbnb",
+    "platform": "greenhouse",
+    "board_token": "airbnb"
+}
+```
 
-app/collectors/collector_factory.py
+The collector architecture is designed so additional job platforms can be added later.
 
-▶️ Run Locally
+Currently implemented:
 
-From the project root:
+```text
+Greenhouse
+```
 
+Additional platforms such as Ashby or Lever can be added by implementing their respective collectors.
+
+---
+
+# ▶️ Run the Agent Locally
+
+Make sure Ollama is running and your Telegram configuration is present.
+
+Run:
+
+```bash
 python main.py
+```
 
-A successful run will look similar to:
+Example output:
 
+```text
 ============================================================
 🤖 JOB AGENT STARTED
 ============================================================
@@ -301,62 +427,72 @@ New jobs: 10
 Jobs sent to AI: 3
 AI matching jobs: 1
 ============================================================
+```
 
-If a job does not match the basic filters, it will be rejected before
-the AI step.
+---
 
-🧠 How Job Matching Works
+# 🧠 How Job Matching Works
 
-The agent uses two stages.
+JobieeAI uses a two-stage matching system.
 
-Stage 1: Basic Filtering
+## Stage 1: Basic Filtering
 
-The job is checked against:
+Jobs are first checked against:
 
+```text
 Company
-
+   ↓
 Role
-
+   ↓
 Location
-
+   ↓
 Experience
+```
 
 Only jobs that pass the basic filters are sent to the AI model.
 
 This reduces unnecessary AI processing.
 
-Stage 2: AI Matching
+---
 
-The remaining job information is sent to Llama 3.2.
+## Stage 2: AI Matching
+
+The filtered job is sent to the local Llama 3.2 model through Ollama.
 
 The AI considers:
 
-Job title
+- Job title
+- Job responsibilities
+- Required skills
+- Experience requirements
+- Location
+- User preferences
 
-Responsibilities
+The AI returns structured information such as:
 
-Skills
-
-Experience requirements
-
-Location
-
-User preferences
-
-The model returns:
-
+```json
 {
     "match": true,
     "confidence": 0.91,
-    "reason": "The role closely matches the requested AI/ML profile and requires Python and machine learning experience."
+    "reason": "The role matches the requested AI/ML profile and requires relevant Python and machine learning skills."
 }
+```
 
-If match is true, the job is sent to Telegram.
+If:
 
-📲 Telegram Notification
+```text
+match = true
+```
 
-A matching job is sent in a format similar to:
+the job is sent to Telegram.
 
+---
+
+# 📲 Telegram Notification
+
+A matching job looks similar to:
+
+```text
 🚨 NEW JOB MATCH
 
 🏢 Company: Airbnb
@@ -368,280 +504,401 @@ A matching job is sent in a format similar to:
 📊 AI Confidence: 0.91
 
 🤖 Why it matches:
-The role closely matches the requested AI/ML profile.
+The role matches the requested AI/ML profile and
+requires relevant Python and machine learning skills.
 
 🔗 Apply:
-https://...
+https://example.com/job
+```
 
-☁️ GitHub Actions Automation
+---
 
-The project can run automatically through:
+# ☁️ GitHub Actions
 
+JobieeAI can run automatically using GitHub Actions.
+
+Workflow file:
+
+```text
 .github/workflows/job-agent.yml
+```
 
-The workflow:
+The workflow performs:
 
-Checks out the repository
+```text
+Checkout Repository
+        ↓
+Setup Python
+        ↓
+Install Dependencies
+        ↓
+Install Ollama
+        ↓
+Start Ollama
+        ↓
+Download Llama 3.2
+        ↓
+Run main.py
+        ↓
+Send Telegram Notifications
+```
 
-Installs Python
+The workflow is configured to run automatically every **2 hours**.
 
-Installs dependencies
+Example:
 
-Installs Ollama
-
-Starts Ollama
-
-Downloads Llama 3.2
-
-Runs main.py
-
-Sends matching jobs to Telegram
-
-The workflow can be triggered manually and is also scheduled to run
-every 2 hours.
-
-Example schedule:
-
+```yaml
 schedule:
   - cron: "0 */2 * * *"
+```
 
-🔐 GitHub Secrets
+The workflow can also be triggered manually.
 
-For GitHub Actions, Telegram credentials must be stored as Repository
-Secrets.
+---
+
+# 🧪 Test GitHub Actions
+
+To manually test the automation:
+
+```text
+GitHub Repository
+        ↓
+Actions
+        ↓
+AI Job Agent
+        ↓
+Run workflow
+        ↓
+Run workflow
+```
+
+Open the latest workflow run.
+
+Then open:
+
+```text
+Run AI Job Agent
+```
+
+A successful run should show logs similar to:
+
+```text
+🤖 JOB AGENT STARTED
+
+🔎 Checking: Airbnb
+Found 150 jobs
+
+✅ Passed basic filters
+🤖 AI analyzing...
+
+📱 Telegram notification sent!
+```
+
+---
+
+# 🔑 GitHub Secrets
+
+When running the agent through GitHub Actions, Telegram credentials should be stored as **Repository Secrets**.
 
 Go to:
 
+```text
 Repository
 → Settings
 → Secrets and variables
 → Actions
 → Repository secrets
+```
 
-Create:
+Add:
 
+```text
 TELEGRAM_BOT_TOKEN
 TELEGRAM_CHAT_ID
+```
 
-The workflow passes them to the application:
+The workflow uses them as environment variables:
 
+```yaml
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+```
 
-Do not put Telegram credentials directly inside Python files or workflow
-YAML.
+Never put the actual Telegram token inside:
 
-🧪 Testing GitHub Actions
+- Python files
+- README.md
+- GitHub Actions YAML
+- user_preferences.json
 
-To test the automation manually:
+---
 
-GitHub Repository
-→ Actions
-→ AI Job Agent
-→ Run workflow
-→ Run workflow
+# 🗄️ Database
 
-Then open the workflow run and inspect:
+JobieeAI uses SQLite to store discovered jobs.
 
-Run AI Job Agent
+Database:
 
-A successful run should not contain:
+```text
+data/jobs.db
+```
 
-TELEGRAM_BOT_TOKEN is missing
+The database stores information including:
 
-If a matching job is found, the logs should contain:
+- Job title
+- Company
+- Location
+- URL
+- Description
+- Experience
+- Posted/updated date
+- Creation timestamp
 
-📱 Telegram notification sent!
+The job URL is stored as a unique value so the application can identify jobs that have already been saved.
 
-📝 Logging
+---
+
+# 📝 Logging
 
 Application logs are stored in:
 
+```text
 data/agent.log
+```
 
-The logger records events such as:
+The logger records:
 
-Agent startup
+- Agent startup
+- Company checks
+- Jobs fetched
+- New jobs
+- Filter results
+- AI processing
+- AI failures
+- Telegram notifications
+- Telegram failures
+- Collector errors
+- Agent completion
 
-Company checks
+---
 
-Collector errors
+# 🔄 Complete Workflow
 
-New jobs
+```text
+Start Agent
+     ↓
+Load User Preferences
+     ↓
+Initialize Database
+     ↓
+Load Company Collector
+     ↓
+Fetch Jobs
+     ↓
+Check Existing Job
+     ↓
+New Job?
+     │
+     ├── No → Skip
+     │
+     └── Yes
+          ↓
+     Basic Filters
+          ↓
+     Company
+          ↓
+     Role
+          ↓
+     Location
+          ↓
+     Experience
+          ↓
+     Passed?
+       │
+       ├── No → Reject
+       │
+       └── Yes
+            ↓
+        AI Analysis
+            ↓
+      Relevant Job?
+         │
+         ├── No → Reject
+         │
+         └── Yes
+              ↓
+       Generate Match
+              ↓
+       Send to Telegram
+```
 
-Filter results
+---
 
-AI failures
+# 📊 Example
 
-Telegram failures
+Suppose your preferences are:
 
-Agent completion
+```text
+Role:
+Machine Learning Engineer
 
-🗄️ Database
+Location:
+India / Remote
 
-The project uses SQLite:
+Experience:
+0–1 year
 
-data/jobs.db
+Skills:
+Python
+Machine Learning
+TensorFlow
+PyTorch
+```
 
-The database stores information such as:
+The agent might find:
 
-Job title
+```text
+Machine Learning Engineer
+India
+0–2 years
+Python
+TensorFlow
+```
 
-Company
+The job passes the initial filters and is sent to the AI matcher.
 
-Location
+The AI evaluates the complete job description instead of relying only on a single keyword.
 
-URL
+If the AI determines that the job is relevant:
 
-Description
+```json
+{
+    "match": true
+}
+```
 
-Experience
+the job is sent to Telegram.
 
-Posted/updated date
+---
 
-Creation timestamp
+# 🔒 Security
 
-The job URL is unique, which allows the application to detect jobs that
-have already been stored.
+Never commit sensitive credentials.
 
-⚠️ Important Deployment Note
+Do not commit:
+
+```text
+.env
+Telegram Bot Token
+API Keys
+Passwords
+Private Credentials
+```
+
+For local development use:
+
+```text
+.env
+```
+
+For GitHub Actions use:
+
+```text
+GitHub Repository Secrets
+```
+
+---
+
+# ⚠️ Deployment Consideration
 
 GitHub-hosted Actions runners are temporary.
 
-The runner is created for a workflow execution and removed after the
-workflow finishes.
+Each scheduled workflow starts on a fresh runner.
 
-Because this project currently uses:
+Because the project currently uses:
 
+```text
 data/jobs.db
+```
 
-you should treat database persistence across separate GitHub Actions
-runs as a deployment concern.
+job history needs to be persisted properly between separate GitHub Actions executions.
 
-If the database is not persisted between runs, the agent can lose its
-previous job history and may treat previously seen jobs as new jobs.
+Without persistent storage, a future workflow run may not have the database state from the previous run and could treat previously seen jobs as new jobs.
 
-A future improvement is to persist job state using a durable storage
-mechanism or commit the updated state back to the repository with
-appropriate GitHub Actions permissions.
+A future improvement is to use persistent storage or another reliable state-management mechanism for scheduled executions.
 
-🔮 Future Improvements
+---
 
-Possible future improvements include:
+# 🔮 Future Improvements
 
-Add Ashby collector
+- [ ] Add Ashby collector
+- [ ] Add Lever collector
+- [ ] Improve semantic role matching
+- [ ] Improve experience extraction
+- [ ] Improve duplicate detection
+- [ ] Persist job history between GitHub Actions runs
+- [ ] Improve AI JSON parsing
+- [ ] Add API retry mechanisms
+- [ ] Add more job sources
+- [ ] Add application tracking
+- [ ] Add job priority levels
+- [ ] Add daily job summaries
+- [ ] Add Telegram commands for changing preferences
 
-Add Lever collector
+---
 
-Improve semantic role matching
+# 📌 Project Scope
 
-Improve experience extraction
+JobieeAI is intentionally designed as a **personal job automation agent**.
 
-Add job deduplication across deployments
+It does not currently include:
 
-Persist job history between GitHub Actions runs
+- ❌ Web dashboard
+- ❌ Frontend
+- ❌ User authentication
+- ❌ Multi-user architecture
+- ❌ Paid AI API requirement for core matching
 
-Improve AI JSON parsing
+The main focus is:
 
-Add retry handling for APIs
-
-Add more notification formats
-
-Add application tracking
-
-Add additional job sources
-
-🔒 Security
-
-Never commit these files or values:
-
-.env
-TELEGRAM_BOT_TOKEN
-TELEGRAM_CHAT_ID
-API keys
-Private credentials
-
-The .gitignore should contain:
-
-venv/
-.env
-__pycache__/
-*.pyc
-
-Keep all credentials in environment variables or GitHub Secrets.
-
-🧑‍💻 Local Development
-
-The main entry point is:
-
-main.py
-
-The application flow is:
-
-Load preferences
+```text
+Job Collection
       ↓
-Initialize database
+Personalized Filtering
       ↓
-Load collectors
+AI Matching
       ↓
-Fetch jobs
+Telegram Alerts
       ↓
-Check if job already exists
-      ↓
-Apply basic filters
-      ↓
-Send suitable jobs to AI
-      ↓
-AI evaluates job
-      ↓
-If matched
-      ↓
-Send Telegram notification
+Automated Execution
+```
 
-📌 Current Scope
+---
 
-JobieeAI is intentionally designed as a personal automation project
-rather than a full job-search platform.
+# 💡 Why JobieeAI?
 
-It currently focuses on:
+Searching for jobs manually across multiple company career pages can be repetitive.
 
-Automated job collection
+JobieeAI automates the repetitive part while keeping the user in control of the actual application.
 
-Personalized filtering
+The agent finds opportunities, evaluates their relevance, and sends the information to Telegram so the user can decide whether to apply.
 
-AI-based matching
+---
 
-Telegram alerts
+# 👨‍💻 Author
 
-Scheduled execution
-
-There is no:
-
-Web dashboard
-
-Frontend
-
-User authentication
-
-Multi-user system
-
-Paid API requirement for the core AI matching flow
-
-👨‍💻 Author
-
-Ayush Mishra
+**Ayush Mishra**
 
 B.Tech in Computer Science - Data Science
 
-GitHub: @ayush07mishra
+GitHub:  
+https://github.com/ayush07mishra
 
-⭐ Project Goal
+---
 
-The goal of JobieeAI is simple:
+# ⭐ Project Goal
 
-Find relevant job opportunities automatically and send only the jobs
-that match my requirements to Telegram.
+> **Automatically find relevant job opportunities and send only the jobs that match my requirements to Telegram.**
 
-Instead of repeatedly searching multiple company career pages, the agent
-handles the repetitive monitoring and matching process automatically.
+JobieeAI turns repetitive job searching into an automated personal workflow.
