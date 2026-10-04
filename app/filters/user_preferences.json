@@ -264,15 +264,92 @@
     "name": "Spotify",
     "platform": "lever",
     "board_token": "spotify"
+}, 
+    {
+    "name": "Monzo",
+    "platform": "greenhouse",
+    "board_token": "monzo"
+},
+{
+    "name": "Culture Amp",
+    "platform": "greenhouse",
+    "board_token": "cultureamp"
+},
+{
+    "name": "Careem",
+    "platform": "greenhouse",
+    "board_token": "careem"
+},
+{
+    "name": "Remote",
+    "platform": "greenhouse",
+    "board_token": "remote"
+},
+{
+    "name": "GoCardless",
+    "platform": "greenhouse",
+    "board_token": "gocardless"
+},
+{
+    "name": "Atolls",
+    "platform": "greenhouse",
+    "board_token": "atolls"
+},
+{
+    "name": "CoreWeave",
+    "platform": "greenhouse",
+    "board_token": "coreweave"
+},
+{
+    "name": "Auvik Networks",
+    "platform": "greenhouse",
+    "board_token": "auviknetworks"
+},
+{
+    "name": "CHAOS Industries",
+    "platform": "greenhouse",
+    "board_token": "chaos"
+},
+{
+    "name": "Swift Solar",
+    "platform": "greenhouse",
+    "board_token": "swiftsolar"
 }
 
     ],
-    "roles": [
+     "roles": [
         "AI Engineer",
+        "AI/ML Engineer",
+        "Artificial Intelligence Engineer",
         "Machine Learning Engineer",
         "ML Engineer",
+        "Applied AI Engineer",
+        "Generative AI Engineer",
+        "GenAI Engineer",
+        "NLP Engineer",
+        "Natural Language Processing Engineer",
+        "Computer Vision Engineer",
         "Data Scientist",
-        "AI/ML Engineer"
+        "Data Science Engineer",
+        "Software Engineer",
+        "Software Development Engineer",
+        "SWE",
+        "Junior Engineer",
+        "Associate Engineer",
+        "Graduate Engineer",
+        "Entry-Level Engineer",
+        "New Graduate Engineer",
+        "AI Engineer Intern",
+        "AI/ML Intern",
+        "Machine Learning Intern",
+        "ML Intern",
+        "Data Science Intern",
+        "Software Engineer Intern",
+        "Software Development Engineer Intern",
+        "SWE Intern",
+        "Artificial Intelligence Intern",
+        "Generative AI Intern",
+        "GenAI Intern"
     ],
     "locations": [
         "India",
@@ -286,7 +363,11 @@
         "Artificial Intelligence",
         "TensorFlow",
         "PyTorch",
+        "SQL",
+        "Deep Learning",
         "Generative AI",
-        "LLM"
+        "LLM",
+        "NLP",
+        "Computer Vision"
     ]
 }
